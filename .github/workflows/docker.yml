@@ -27,8 +27,9 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: ghcr.io/sevenelevendevunipd/latex_pandoc_filters
+          tags: latest
 
-      - name: Build and push Docker image
+      - name: Build Docker image
         uses: docker/build-push-action@v3
         with:
           context: .
@@ -36,7 +37,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-      - name: Build and push Docker image
+      - name: Push Docker image to GHCR
         uses: docker/build-push-action@v3
         if: github.ref == 'refs/heads/master'
         with:
