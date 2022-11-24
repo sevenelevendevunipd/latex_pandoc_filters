@@ -1,11 +1,12 @@
-name: Create and publish a Docker image
+name: Build and publish Docker image
 
 on:
   push:
-
+  workflow_dispatch:
 
 jobs:
-  build-and-push-image:
+  build-and-push-imagei:
+    name: Build and push Docker image
     runs-on: ubuntu-latest
     permissions:
       contents: read
