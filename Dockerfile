@@ -3,7 +3,7 @@ FROM archlinux:latest
 RUN set -x && \
   echo "[options]" >> /etc/pacman.conf && \
   echo "ParallelDownloads = 8" >> /etc/pacman.conf && \
-  pacman -Sy --noconfirm python python-pip texlive-core texlive-latexextra plantuml wget librsvg ttf-dejavu && \
+  pacman -Sy --noconfirm python python-pip texlive-core texlive-latexextra plantuml wget librsvg ttf-dejavu ditaa graphviz plantuml-ascii-math && \
   wget -q -O /tmp/pandoc.tar.gz https://github.com/jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-linux-amd64.tar.gz && \
   sed -i 's/\$Master = "\$Master\/..\/..";/\$Master = "\$Master\/..\/..\/..";/' /usr/share/texmf-dist/scripts/texlive/tlmgr.pl && \ 
   /usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode init-usertree && \
